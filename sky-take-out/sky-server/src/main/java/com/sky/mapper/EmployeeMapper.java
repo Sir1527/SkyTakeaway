@@ -19,6 +19,13 @@ public interface EmployeeMapper {
     Employee getByUsername(String username);
 
     /**
+     * 根据ID查询
+     * @param id
+     */
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Long id);
+
+    /**
      * 插入员工数据
      * @param employee
      */
@@ -41,10 +48,4 @@ public interface EmployeeMapper {
      */
     void update(Employee employee);
 
-    /**
-     * 根据ID查询
-     * @param id
-     */
-    @Select("select * from employee where id = #{id}")
-    Employee getById(Long id);
 }
