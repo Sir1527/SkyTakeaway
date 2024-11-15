@@ -1,6 +1,7 @@
 package com.sky.aspect;
 
 import com.sky.annotation.AutoFill;
+import com.sky.constant.AutoFillConstant;
 import com.sky.context.BaseContext;
 import com.sky.enumeration.OperationType;
 import lombok.extern.slf4j.Slf4j;
@@ -61,10 +62,10 @@ public class AutoFillAspect {
         if (operationType == OperationType.INSERT) {
             //为四个字段进行赋值
             try {
-                Method setCreateTime = entity.getClass().getDeclaredMethod("setCreateTime", LocalDateTime.class);
-                Method setUpdateTime = entity.getClass().getDeclaredMethod("setUpdateTime", LocalDateTime.class);
-                Method setCreateUser = entity.getClass().getDeclaredMethod("setCreateUser", Long.class);
-                Method setUpdateUser = entity.getClass().getDeclaredMethod("setUpdateUser", Long.class);
+                Method setCreateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_TIME, LocalDateTime.class);
+                Method setUpdateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDateTime.class);
+                Method setCreateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_USER, Long.class);
+                Method setUpdateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_USER, Long.class);
 
                 setCreateTime.invoke(entity, time);
                 setUpdateTime.invoke(entity, time);
@@ -76,8 +77,8 @@ public class AutoFillAspect {
         }else if (operationType == OperationType.UPDATE) {
             //为两个字段进行赋值
             try {
-                Method setUpdateUser = entity.getClass().getDeclaredMethod("setUpdateUser", Long.class);
-                Method setUpdateTime = entity.getClass().getDeclaredMethod("setUpdateTime", LocalDateTime.class);
+                Method setUpdateUser = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_USER, Long.class);
+                Method setUpdateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_UPDATE_TIME, LocalDateTime.class);
                 setUpdateTime.invoke(entity, time);
                 setUpdateUser.invoke(entity, empId);
             } catch (Exception e) {
