@@ -37,3 +37,10 @@ sky:
     admin-ttl: 72000000
     # 设置前端传递过来的令牌名称
     admin-token-name: token
+
+minio:
+  host: http://139.159.237.2:9000 # 访问地址
+  accessKey: 1UQ3vMCnUgMTi2apQ7EU # 登录账号
+  secretKey: rxz21gGQ4TnmtzPwHxC425HPhD43Jku7WbGMLUsV # 登录账号密码
+  bucketName: sky # 文件桶的名称
+  bucket: public  # 权限

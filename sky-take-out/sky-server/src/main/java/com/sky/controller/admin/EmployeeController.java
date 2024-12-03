@@ -85,7 +85,6 @@ public class EmployeeController {
     @PostMapping
     @ApiOperation("新增员工接口")
     public Result save(@RequestBody EmployeeDTO employeeDTO) {
-        log.info("新增员工: {}", employeeDTO);
         employeeService.save(employeeDTO);
         return Result.success();
     }
@@ -98,7 +97,6 @@ public class EmployeeController {
     @GetMapping("/page")
     @ApiOperation("员工分页查询")
     public Result<PageResult> page (EmployeePageQueryDTO employeePageQueryDTO){
-        log.info("分页查询:{}", employeePageQueryDTO);
         PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
         return Result.success(pageResult);
     }
@@ -147,7 +145,6 @@ public class EmployeeController {
     @PutMapping("/editPassword")
     @ApiOperation("修改密码")
     public Result<String> updatePassWord(@RequestBody EmployeePassWordDTO employeePassWordDTO) {
-        log.info("员工修改密码:{}", employeePassWordDTO);
         employeeService.updatePassWord(employeePassWordDTO);
         return Result.success();
     }
