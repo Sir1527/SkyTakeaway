@@ -1,5 +1,6 @@
 package com.sky.controller.admin;
 
+import com.sky.constant.MessageConstant;
 import com.sky.result.Result;
 import com.sky.utils.MinioUtil;
 import io.swagger.annotations.Api;
@@ -37,9 +38,9 @@ public class CommonController {
             String filePath = minioUtil.uploadFile(file.getInputStream(),"sky",objectName);
             return Result.success(filePath);
         } catch (Exception e) {
-            log.error("文件上上传失败！");
+            log.error(MessageConstant.UPLOAD_FAILED,e);
         }
-        return Result.error("文件上传失败！");
+        return Result.error(MessageConstant.UPLOAD_FAILED);
     }
 
 }
