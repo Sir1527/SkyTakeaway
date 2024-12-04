@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,8 +21,8 @@ public class DishController {
 
     @PostMapping
     @ApiOperation("新增菜品接口")
-    public Result save(DishDTO dishDTO) {
-
+    public Result save(@RequestBody DishDTO dishDTO) {
+        log.info("dishDTO:{}", dishDTO);
         return Result.success();
     }
 }
