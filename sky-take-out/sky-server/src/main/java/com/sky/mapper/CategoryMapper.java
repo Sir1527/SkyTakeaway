@@ -24,12 +24,12 @@ public interface CategoryMapper {
      * 新增菜单分类
      * @param category
      */
-    @Insert("insert into category(type, name, sort, status, create_time, update_time, create_user, update_user)" +
+    @Insert("insert into sky_take_out.category(type, name, sort, status, create_time, update_time, create_user, update_user)" +
             " VALUES" +
             " (#{type}, #{name}, #{sort}, #{status}, #{createTime}, #{updateTime}, #{createUser}, #{updateUser})")
     void insert(Category category);
 
-    @Delete("DELETE FROM category WHERE id = #{id}")
+    @Delete("DELETE FROM sky_take_out.category WHERE id = #{id}")
     void deleteById(Long id);
 
     /**
@@ -42,6 +42,6 @@ public interface CategoryMapper {
      * @param type
      * @return
      */
-    @Select("SELECT * from category where type = #{type}")
+    @Select("SELECT * from sky_take_out.category where type = #{type}")
     List<Category> QueryByType(Integer type);
 }
