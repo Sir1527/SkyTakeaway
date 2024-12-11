@@ -26,7 +26,11 @@ public class CommonController {
     @Autowired
     MinioUtil minioUtil;
 
-
+    /**
+     * 文件上传接口
+     * @param file
+     * @return
+     */
     @PostMapping("/upload")
     @ApiOperation("文件上传")
     public Result<String> upload(MultipartFile file) {
