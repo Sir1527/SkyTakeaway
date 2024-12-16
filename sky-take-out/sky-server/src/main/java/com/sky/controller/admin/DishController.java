@@ -90,6 +90,11 @@ public class DishController {
         return Result.success(dishService.queryByCategory(categoryId));
     }
 
+    /**
+     * 根据id查询菜品和关联的口味数据
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     @ApiOperation("根据id查询菜品和关联的口味数据")
     public Result<DishVO> getById(@PathVariable Long id){
