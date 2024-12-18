@@ -15,6 +15,10 @@ import java.util.List;
 @Mapper
 public interface DishMapper {
 
+    /**
+     * 新增菜品
+     * @param dish
+     */
     @AutoFill(OperationType.INSERT)
     void insert(Dish dish);
 
