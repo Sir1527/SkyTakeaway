@@ -12,6 +12,11 @@ spring:
       url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
+  redis:
+    host: ${sky.redis.host}
+    port: ${sky.redis.port}
+    password: ${sky.redis.password}
+    database: ${sky.redis.database}
 
 mybatis:
   #mapper配置文件
@@ -39,8 +44,8 @@ sky:
     admin-token-name: token
 
 minio:
-  host: http://139.159.237.2:9000 # 访问地址
-  accessKey: 1UQ3vMCnUgMTi2apQ7EU # 登录账号
-  secretKey: rxz21gGQ4TnmtzPwHxC425HPhD43Jku7WbGMLUsV # 登录账号密码
-  bucketName: sky # 文件桶的名称
-  bucket: public  # 权限
+  host: ${sky.minio.host} # 访问地址
+  accessKey: ${sky.minio.accessKey} # 登录账号
+  secretKey: ${sky.minio.secretKey} # 登录账号密码
+  bucketName: ${sky.minio.bucketName} # 文件桶的名称
+  bucket: ${sky.minio.bucket}  # 权限
