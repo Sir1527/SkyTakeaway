@@ -30,6 +30,10 @@ public interface SetmealMapper {
     @Select("select * from sky_take_out.setmeal where id = #{id}")
     Setmeal getById(Long id);
 
+    /**
+     * 根据id删除
+     * @param setmealId
+     */
     @Delete("delete from sky_take_out.setmeal where id = #{id}")
     void deleteById(Long setmealId);
 
