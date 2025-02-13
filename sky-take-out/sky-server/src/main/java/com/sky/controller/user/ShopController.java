@@ -1,4 +1,5 @@
-package com.sky.controller.admin;
+package com.sky.controller.user;
+
 
 import com.sky.result.Result;
 import io.swagger.annotations.Api;
@@ -9,7 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController("userShopController")
-@RequestMapping("/admin/shop")
+@RequestMapping("/user/shop")
 @Api(tags = "店铺操作相关接口")
 @Slf4j
 public class ShopController {
@@ -18,18 +19,6 @@ public class ShopController {
 
     @Autowired
     private RedisTemplate redisTemplate;
-
-    /**
-     * 设置店铺营业状态
-     * @return
-     */
-    @PutMapping("/{status}")
-    @ApiOperation("设置店铺营业状态")
-    public Result<Integer> getStatus(@PathVariable Integer status) {
-        log.info("设置营业状态为：{}", status == 1 ? "营业中" : "打烊中");
-        redisTemplate.opsForValue().set(KEY, String.valueOf(status));
-        return Result.success();
-    }
 
     /**
      * 获取店铺营业状态
