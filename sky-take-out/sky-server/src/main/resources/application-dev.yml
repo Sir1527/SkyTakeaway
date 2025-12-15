@@ -1,19 +1,19 @@
 sky:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: 139.159.237.2
-    port: 3666
+    host: 8.137.194.184
+    port: 3399
     database: sky_take_out
     username: root
-    password: admin
+    password: Sir1024.
   redis:
-    host: 139.159.237.2
+    host: 8.137.194.184
     port: 6379
-    password: Lxq20422.
+    password: Sir1024.
     database: 0
   minio:
-    host: http://139.159.237.2:9000 # 访问地址
-    accessKey: 1UQ3vMCnUgMTi2apQ7EU # 登录账号
-    secretKey: rxz21gGQ4TnmtzPwHxC425HPhD43Jku7WbGMLUsV # 登录账号密码
+    host: http://8.137.194.184:9000 # 访问地址
+    accessKey: Sir1024 # 登录账号
+    secretKey: Lxq20422. # 登录账号密码
     bucketName: sky # 文件桶的名称
     bucket: public  # 权限
